@@ -1,0 +1,36 @@
+jooq {
+    sample(sourceSets.main) {
+        jdbc {
+            driver = applicationProperties['spring.datasource.driver-class-name']
+            url = applicationProperties['spring.datasource.url']
+            user = applicationProperties['spring.datasource.username']
+            password = applicationProperties['spring.datasource.password']
+            schema = 'expenses_logger'
+            properties {
+                property {
+                    key = 'ssl'
+                    value = 'true'
+                }
+            }
+        }
+        generator {
+            name = 'org.jooq.util.DefaultGenerator'
+            strategy {
+                name = 'org.jooq.util.DefaultGeneratorStrategy'
+            }
+            database {
+                name = 'org.jooq.util.mysql.MySQLDatabase'
+                inputSchema = 'expenses_logger'
+                includes = 'expense'
+            }
+            generate {
+                daos = true
+                immutablePojos = true
+            }
+            target {
+                packageName = 'org.alexkovalenko.data.generated'
+                directory = 'src/main/java'
+            }
+        }
+    }
+}

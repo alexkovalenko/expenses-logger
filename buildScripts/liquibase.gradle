@@ -1,0 +1,10 @@
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/db/changelog.xml'
+            url applicationProperties['spring.datasource.url']
+            username applicationProperties['spring.datasource.username']
+            password applicationProperties['spring.datasource.password']
+        }
+    }
+}
