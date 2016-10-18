@@ -25,7 +25,6 @@ jooq {
             }
             generate {
                 daos = true
-                immutablePojos = true
             }
             target {
                 packageName = 'org.alexkovalenko.data.generated'
