@@ -11,13 +11,15 @@ package org.alexkovalenko.data.generated.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Expense implements java.io.Serializable {
 
-	private static final long serialVersionUID = 407908484;
+	private static final long serialVersionUID = -871039912;
 
-	private final java.lang.Long       id;
-	private final java.lang.String     name;
-	private final java.lang.String     description;
-	private final java.math.BigDecimal value;
-	private final java.sql.Date        date;
+	private java.lang.Long       id;
+	private java.lang.String     name;
+	private java.lang.String     description;
+	private java.math.BigDecimal value;
+	private java.sql.Date        date;
+
+	public Expense() {}
 
 	public Expense(
 		java.lang.Long       id,
@@ -37,19 +39,39 @@ public class Expense implements java.io.Serializable {
 		return this.id;
 	}
 
+	public void setId(java.lang.Long id) {
+		this.id = id;
+	}
+
 	public java.lang.String getName() {
 		return this.name;
+	}
+
+	public void setName(java.lang.String name) {
+		this.name = name;
 	}
 
 	public java.lang.String getDescription() {
 		return this.description;
 	}
 
+	public void setDescription(java.lang.String description) {
+		this.description = description;
+	}
+
 	public java.math.BigDecimal getValue() {
 		return this.value;
 	}
 
+	public void setValue(java.math.BigDecimal value) {
+		this.value = value;
+	}
+
 	public java.sql.Date getDate() {
 		return this.date;
+	}
+
+	public void setDate(java.sql.Date date) {
+		this.date = date;
 	}
 }

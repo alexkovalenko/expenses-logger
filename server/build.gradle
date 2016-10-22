@@ -19,6 +19,7 @@ buildscript {
     }
 }
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'org.liquibase.gradle'
 apply from: '../buildScripts/liquibase.gradle'
@@ -42,9 +43,8 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-jooq')
-    compile('org.jooq:jooq-codegen:3.8.4')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile("org.springframework.boot:spring-boot-devtools")
+    compile('org.jooq:jooq-codegen:3.8.4')
+    compile('org.modelmapper:modelmapper:0.7.5')
     runtime('mysql:mysql-connector-java:5.1.39')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

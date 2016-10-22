@@ -24,8 +24,8 @@ jooq {
                 includes = 'expense'
             }
             generate {
-                daos = true
-                immutablePojos = true
+                records = true
+                pojos = true
             }
             target {
                 packageName = 'org.alexkovalenko.data.generated'
