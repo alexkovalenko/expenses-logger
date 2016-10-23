@@ -48,3 +48,7 @@ dependencies {
     compile('org.modelmapper:modelmapper:0.7.5')
     runtime('mysql:mysql-connector-java:5.1.39')
 }
+
+task stage {
+    dependsOn clean, build
+}
