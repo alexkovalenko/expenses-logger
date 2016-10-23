@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from "@angular/http";
 import {Expense} from "./expense";
 import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
 
 @Injectable()
 export class ExpenseService {
@@ -19,5 +17,10 @@ export class ExpenseService {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(`${this.baseUrl}/expense`, body, options);
+  }
+
+  public fetchExpenses(aggregationLevel: string): Observable<any> {
+    console.log(`Fetching expenses for aggregation level ${aggregationLevel}`);
+    return this.http.get(`${this.baseUrl}/expense/${aggregationLevel}`);
   }
 }

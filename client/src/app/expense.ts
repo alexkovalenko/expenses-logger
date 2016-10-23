@@ -1,7 +1,7 @@
 export class Expense {
-  constructor(public name: String,
-              public description: String,
-              public value: Number,
+  constructor(public name: string,
+              public description: string,
+              public value: number,
               public date: Date) {
   }
 }

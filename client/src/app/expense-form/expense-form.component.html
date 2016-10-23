@@ -1,23 +1,23 @@
 <div class="container">
-  <h1>Expense</h1>
+  <h1>Додати витрату</h1>
   <form class="expense-form">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">Що</label>
       <input type="text" class="form-control" id="name" required name="name" #name>
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
+      <label for="description">Детальніше</label>
       <input type="text" class="form-control" id="description" required name="description" #description>
     </div>
     <div class="form-group">
-      <label for="value">Value</label>
+      <label for="value">Скільки</label>
       <input type="number" class="form-control" id="value" required name="value" #value>
     </div>
     <div class="form-group">
-      <label for="date">Date</label>
+      <label for="date">Коли</label>
       <input type="date" class="form-control" id="date" required name="date" #date>
     </div>
-    <button class="btn btn-default" (click)="addExpence(name.value, description.value, value.value, date.value)">Add</button>
+    <button class="btn btn-default" (click)="addExpence(name.value, description.value, value.value, date.value)">Додати</button>
   </form>
 
   <ngb-alert *ngIf="alert && alert.visible" [type]="alert.type" (close)="alert.visible = false">{{ alert.message }}</ngb-alert>
