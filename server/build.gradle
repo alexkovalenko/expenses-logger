@@ -52,3 +52,5 @@ dependencies {
 task stage {
     dependsOn clean, build
 }
+
+generateSampleJooqSchemaSource.dependsOn update
