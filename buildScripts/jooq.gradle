@@ -29,7 +29,7 @@ jooq {
             }
             target {
                 packageName = 'org.alexkovalenko.data.generated'
-                directory = 'src/main/java'
+                directory = "${project.projectDir}/src/main/java"
             }
         }
     }
