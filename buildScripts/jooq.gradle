@@ -20,7 +20,7 @@ jooq {
             }
             database {
                 name = 'org.jooq.util.mysql.MySQLDatabase'
-                inputSchema = 'expenses_logger'
+                inputSchema = 'heroku_72366db3f3a4083'
                 includes = 'expense'
             }
             generate {
