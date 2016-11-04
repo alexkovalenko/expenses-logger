@@ -6,7 +6,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {ExpenseFormComponent} from "./expense-form/expense-form.component";
 import {ExpensesGridComponent} from './expenses-grid/expenses-grid.component';
-import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -18,11 +17,7 @@ import {RouterModule} from "@angular/router";
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {path: '', component: ExpenseFormComponent},
-      {path: 'view', component: ExpensesGridComponent}
-    ])],
+    NgbModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })

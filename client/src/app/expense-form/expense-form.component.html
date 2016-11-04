@@ -1,24 +1,30 @@
 <div class="container">
-  <h1>Додати витрату</h1>
-  <form class="expense-form">
-    <div class="form-group">
-      <label for="name">Що</label>
-      <input type="text" class="form-control" id="name" required name="name" #name>
+  <form class="expense-form" (ngSubmit)="addExpence()" #expensesForm="ngForm">
+    <div class="row">
+      <div class="card">
+        <div class="card-block">
+          <div class="form-group">
+            <label for="name">Що</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="expense.name" required name="name">
+          </div>
+          <div class="form-group">
+            <label for="description">Детальніше</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="expense.description" name="description">
+          </div>
+          <div class="form-group">
+            <label for="value">Скільки</label>
+            <input type="number" class="form-control" id="value" [(ngModel)]="expense.value" required name="value">
+          </div>
+          <div class="form-group">
+            <label for="date">Коли</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="expense.date" required name="date">
+          </div>
+          <button type="submit" class="btn btn-default" >Додати</button>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="description">Детальніше</label>
-      <input type="text" class="form-control" id="description" required name="description" #description>
-    </div>
-    <div class="form-group">
-      <label for="value">Скільки</label>
-      <input type="number" class="form-control" id="value" required name="value" #value>
-    </div>
-    <div class="form-group">
-      <label for="date">Коли</label>
-      <input type="date" class="form-control" id="date" required name="date" #date>
-    </div>
-    <button class="btn btn-default" (click)="addExpence(name.value, description.value, value.value, date.value)">Додати</button>
   </form>
 
-  <ngb-alert *ngIf="alert && alert.visible" [type]="alert.type" (close)="alert.visible = false">{{ alert.message }}</ngb-alert>
+  <ngb-alert *ngIf="alert?.visible" [type]="alert.type" (close)="alert.visible = false">{{ alert.message }}
+  </ngb-alert>
 </div>

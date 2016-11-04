@@ -1,14 +1,15 @@
-<div class="app-body">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" routerLink="/">Expense Logger</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/">Додати</a></li>
-        <li><a routerLink="/view">Переглянути</a></li>
-      </ul>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
+<div class="col-md-4"></div>
+<div class="col-md-4 ">
+  <ngb-tabset>
+    <ngb-tab title="Додати">
+      <template ngbTabContent>
+        <expense-form></expense-form>
+      </template>
+    </ngb-tab>
+    <ngb-tab title="Переглянути">
+      <template ngbTabContent>
+        <expenses-grid></expenses-grid>
+      </template>
+    </ngb-tab>
+  </ngb-tabset>
 </div>
