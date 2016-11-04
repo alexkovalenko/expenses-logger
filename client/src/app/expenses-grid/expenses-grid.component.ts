@@ -5,12 +5,12 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 
 @Component({
-  selector: 'app-expenses-grid',
+  selector: 'expenses-grid',
   templateUrl: './expenses-grid.component.html',
   styleUrls: ['./expenses-grid.component.css'],
   providers: [ExpenseService]
 })
-export class ExpensesGridComponent implements OnInit {
+export class ExpensesGridComponent{
 
   expenses: Expense[];
   aggregationSum: number;
@@ -30,8 +30,4 @@ export class ExpensesGridComponent implements OnInit {
     this.expenses.forEach((expense: Expense) => sum += expense.value);
     this.aggregationSum = sum;
   }
-
-  ngOnInit() {
-  }
-
 }

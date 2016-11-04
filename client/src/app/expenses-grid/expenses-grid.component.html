@@ -1,19 +1,24 @@
-<div class="expense-grid-container container">
-  <div ngbDropdown class="d-inline-block">
-    <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>Показати витрати за</button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <button class="dropdown-item" (click)="onAggregationButtonClick('ALL')">За весь період</button>
-      <button class="dropdown-item" (click)="onAggregationButtonClick('MONTH')">За місяць</button>
-      <button class="dropdown-item" (click)="onAggregationButtonClick('DAY')">За день</button>
+<div class="card">
+  <div class="card-block">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>Показати витрати за</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <button class="dropdown-item" (click)="onAggregationButtonClick('ALL')">За весь період</button>
+        <button class="dropdown-item" (click)="onAggregationButtonClick('MONTH')">За місяць</button>
+        <button class="dropdown-item" (click)="onAggregationButtonClick('DAY')">За день</button>
+      </div>
     </div>
-  </div>
-  <div id="expenses-grid" *ngIf="expenses && expenses.length > 0">
-    <p>Всього витрачено за період {{aggregationSum}}</p>
-    <div class="row" *ngFor="let expense of expenses">
-      <div class="col-xs-6 col-sm-3">{{expense.name}}</div>
-      <div class="col-xs-6 col-sm-3">{{expense.description}}</div>
-      <div class="col-xs-6 col-sm-3">{{expense.value}}</div>
-      <div class="col-xs-6 col-sm-3">{{expense.date}}</div>
+    <div id="expenses-grid" *ngIf="expenses && expenses.length > 0">
+      <p>Всього витрачено за період {{aggregationSum}}</p>
+      <div class="row" *ngFor="let expense of expenses">
+        <div class="col-xs-4 col-md-4">
+        <span placement="bottom" ngbTooltip="{{expense.description}}">
+          {{expense.name}}
+        </span>
+        </div>
+        <div class="col-xs-4 col-md-4">{{expense.value}}</div>
+        <div class="col-xs-4 col-md-4">{{expense.date}}</div>
+      </div>
     </div>
   </div>
 </div>

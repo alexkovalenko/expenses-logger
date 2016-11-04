@@ -11,13 +11,14 @@ import {ExpenseService} from "../expense.service";
 export class ExpenseFormComponent {
   @Input()
   public alert: Alert;
+  expense: Expense;
 
   constructor(private expenseService: ExpenseService) {
+    this.expense = new Expense();
   }
 
-  public addExpence(name: string, description: string, value: number, date: Date) {
-    var expense = new Expense(name, description, value, date);
-    this.expenseService.addExpense(expense).subscribe(
+  public addExpence() {
+    this.expenseService.addExpense(this.expense).subscribe(
       response => {
         this.showSuccessMessage('success', 'Successfully saved expense')
       },
@@ -26,6 +27,7 @@ export class ExpenseFormComponent {
         console.log(err);
       }
     );
+    this.expense = new Expense();
   }
 
   public showSuccessMessage(type: string, message: string) {
