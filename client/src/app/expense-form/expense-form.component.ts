@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Expense} from "../Expense";
-import {ExpenseService} from "../expense.service";
+import {ExpenseService, baseUrl} from "../expense.service";
+import {FileUploader} from "ng2-file-upload";
 
 @Component({
   selector: 'expense-form',
@@ -9,34 +10,35 @@ import {ExpenseService} from "../expense.service";
   providers: [ExpenseService]
 })
 export class ExpenseFormComponent {
-  @Input()
-  public alert: Alert;
+  alert: Alert;
   expense: Expense;
+  uploader: FileUploader = new FileUploader({url: `${baseUrl}/expense/import`});
 
   constructor(private expenseService: ExpenseService) {
-    this.expense = new Expense();
+    this.alert = new Alert('none', false);
+    this.expense = new Expense("bla", "bla bla", 1, new Date());
   }
 
-  public addExpence() {
+  addExpence() {
     this.expenseService.addExpense(this.expense).subscribe(
       response => {
-        this.showSuccessMessage('success', 'Successfully saved expense')
+        this.showSuccessMessage('check')
       },
       err => {
-        this.showSuccessMessage('danger', 'Failed to save expense');
+        this.showSuccessMessage('close');
         console.log(err);
       }
     );
-    this.expense = new Expense();
+    this.expense = new Expense("bla", "bla bla", 1, new Date());
   }
 
-  public showSuccessMessage(type: string, message: string) {
-    this.alert = new Alert(type, message, true);
+  showSuccessMessage(type: string) {
+    this.alert = new Alert(type, true);
     setTimeout(()=> this.alert.visible = false, 5000);
   }
 }
 
 export class Alert {
-  constructor(public type: string, public message: string, public visible: boolean) {
+  constructor(public type: string, public visible: boolean) {
   }
 }
