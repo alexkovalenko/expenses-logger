@@ -46,5 +46,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.jooq:jooq-codegen:3.8.4')
     compile('org.modelmapper:modelmapper:0.7.5')
+    compile('com.opencsv:opencsv:3.7')
     runtime('mysql:mysql-connector-java:5.1.39')
 }

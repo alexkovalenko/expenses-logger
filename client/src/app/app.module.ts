@@ -6,6 +6,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {ExpenseFormComponent} from "./expense-form/expense-form.component";
 import {ExpensesGridComponent} from './expenses-grid/expenses-grid.component';
+import {FileUploadModule} from "ng2-file-upload";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ExpensesGridComponent} from './expenses-grid/expenses-grid.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot()],
+    NgbModule.forRoot(),
+    FileUploadModule],
   providers: [],
   bootstrap: [AppComponent]
 })

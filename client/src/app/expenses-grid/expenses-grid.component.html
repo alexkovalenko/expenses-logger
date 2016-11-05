@@ -8,16 +8,19 @@
         <button class="dropdown-item" (click)="onAggregationButtonClick('DAY')">За день</button>
       </div>
     </div>
-    <div id="expenses-grid" *ngIf="expenses && expenses.length > 0">
-      <p>Всього витрачено за період {{aggregationSum}}</p>
+    <div id="expenses-grid" *ngIf="expenses?.length > 0">
       <div class="row" *ngFor="let expense of expenses">
         <div class="col-xs-4 col-md-4">
-        <span placement="bottom" ngbTooltip="{{expense.description}}">
-          {{expense.name}}
-        </span>
+          <span placement="bottom" ngbTooltip="{{expense.description}}">
+            {{expense.name}}
+          </span>
         </div>
         <div class="col-xs-4 col-md-4">{{expense.value}}</div>
         <div class="col-xs-4 col-md-4">{{expense.date}}</div>
+      </div>
+      <div class="row">
+        <strong class="col-xs-4 col-md-4">Всього</strong>
+        <strong class="col-xs-4 col-md-4">{{aggregationSum}}</strong>
       </div>
     </div>
   </div>

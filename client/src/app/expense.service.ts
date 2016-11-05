@@ -3,10 +3,10 @@ import {Http, Headers, RequestOptions} from "@angular/http";
 import {Expense} from "./expense";
 import {Observable} from 'rxjs/Rx';
 
+export const baseUrl: string = 'http://localhost:8080';
+
 @Injectable()
 export class ExpenseService {
-
-  private baseUrl: string = 'http://localhost:8080';
 
   constructor(private http: Http) {
   }
@@ -16,11 +16,11 @@ export class ExpenseService {
     let body = JSON.stringify(expense);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(`${this.baseUrl}/expense`, body, options);
+    return this.http.post(`${baseUrl}/expense`, body, options);
   }
 
   public fetchExpenses(aggregationLevel: string): Observable<any> {
     console.log(`Fetching expenses for aggregation level ${aggregationLevel}`);
-    return this.http.get(`${this.baseUrl}/expense/${aggregationLevel}`);
+    return this.http.get(`${baseUrl}/expense/${aggregationLevel}`);
   }
 }
