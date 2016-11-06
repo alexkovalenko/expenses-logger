@@ -16,7 +16,7 @@ export class ExpenseFormComponent {
 
   constructor(private expenseService: ExpenseService) {
     this.alert = new Alert('none', false);
-    this.expense = new Expense("bla", "bla bla", 1, new Date());
+    this.expense = new Expense();
   }
 
   addExpence() {
@@ -29,7 +29,7 @@ export class ExpenseFormComponent {
         console.log(err);
       }
     );
-    this.expense = new Expense("bla", "bla bla", 1, new Date());
+    this.expense = new Expense();
   }
 
   showSuccessMessage(type: string) {
