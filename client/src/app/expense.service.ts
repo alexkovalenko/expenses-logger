@@ -3,7 +3,7 @@ import {Http, Headers, RequestOptions} from "@angular/http";
 import {Expense} from "./expense";
 import {Observable} from 'rxjs/Rx';
 
-export const baseUrl: string = 'http://localhost:8080';
+export const baseUrl: string = window.location.origin;
 
 @Injectable()
 export class ExpenseService {

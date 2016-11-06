@@ -1,0 +1,7 @@
+---
+applications:
+  - name: expenses-logger
+    buildpack: java_buildpack
+    path: server/build/libs/expenses-logger-0.0.1-SNAPSHOT.jar
+    services:
+      - expenses-logger-db
