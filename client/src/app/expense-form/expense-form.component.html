@@ -3,7 +3,7 @@
     <form class="expense-form" (ngSubmit)="addExpence()" #expensesForm="ngForm">
       <div class="form-group">
         <label for="name">Що</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="expense.name" required name="name">
+        <name-autocomplete id="name" name="name" required></name-autocomplete>
       </div>
       <div class="form-group">
         <label for="description">Детальніше</label>

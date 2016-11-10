@@ -26,6 +26,12 @@ public class ExpenseController {
         expenseService.save(expense);
     }
 
+    @GetMapping("/name")
+    @ResponseBody
+    public List<String> getNames() {
+        return expenseService.getNames();
+    }
+
     @GetMapping("/{aggregationLevel}")
     @ResponseBody
     public List<Expense> find(@PathVariable("aggregationLevel") AggregationLevel aggregationLevel) {
