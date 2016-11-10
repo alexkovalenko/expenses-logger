@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ExpenseService} from "../expense.service";
 import {Expense} from "../expense";
 import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
 
 @Component({
   selector: 'expenses-grid',
@@ -10,7 +9,7 @@ import 'rxjs/add/operator/catch'
   styleUrls: ['./expenses-grid.component.css'],
   providers: [ExpenseService]
 })
-export class ExpensesGridComponent{
+export class ExpensesGridComponent {
 
   expenses: Expense[];
   aggregationSum: number;

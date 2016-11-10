@@ -12,7 +12,6 @@ export class ExpenseService {
   }
 
   public addExpense(expense: Expense): Observable<any> {
-    console.log('Sending expense to server:', expense);
     let body = JSON.stringify(expense);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
@@ -20,7 +19,10 @@ export class ExpenseService {
   }
 
   public fetchExpenses(aggregationLevel: string): Observable<any> {
-    console.log(`Fetching expenses for aggregation level ${aggregationLevel}`);
     return this.http.get(`${baseUrl}/expense/${aggregationLevel}`);
+  }
+
+  public fetchNames(): Observable<any> {
+    return this.http.get(`${baseUrl}/expense/name`);
   }
 }

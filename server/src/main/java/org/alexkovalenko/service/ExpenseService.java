@@ -21,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.alexkovalenko.data.generated.Tables.EXPENSE;
 import static org.jooq.DatePart.DAY;
 import static org.jooq.DatePart.MONTH;
@@ -67,6 +68,15 @@ public class ExpenseService {
             }
         } catch (Exception ignore) {
         }
+    }
+
+    public List<String> getNames() {
+        return dslContext.selectDistinct(EXPENSE.NAME)
+                .from(EXPENSE)
+                .fetch(EXPENSE.NAME)
+                .stream()
+                .map(String::toLowerCase)
+                .collect(toList());
     }
 
     private Date parseDate(String dateString) throws ParseException {
