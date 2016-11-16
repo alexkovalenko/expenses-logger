@@ -10,17 +10,17 @@
     </div>
     <div id="expenses-grid" *ngIf="expenses?.length > 0">
       <div class="row" *ngFor="let expense of expenses">
-        <div class="col-xs-4 col-md-4">
+        <div class="">
           <span placement="bottom" ngbTooltip="{{expense.description}}">
             {{expense.name}}
           </span>
         </div>
-        <div class="col-xs-4 col-md-4">{{expense.value}}</div>
-        <div class="col-xs-4 col-md-4">{{expense.date}}</div>
+        <div class="">{{expense.value}}</div>
+        <div class="">{{expense.date}}</div>
       </div>
       <div class="row">
-        <strong class="col-xs-4 col-md-4">Всього</strong>
-        <strong class="col-xs-4 col-md-4">{{aggregationSum}}</strong>
+        <strong class="">Всього</strong>
+        <strong class="">{{aggregationSum}}</strong>
       </div>
     </div>
   </div>

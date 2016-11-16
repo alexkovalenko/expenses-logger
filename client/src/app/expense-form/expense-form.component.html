@@ -3,7 +3,7 @@
     <form class="expense-form" (ngSubmit)="addExpence()" #expensesForm="ngForm">
       <div class="form-group">
         <label for="name">Що</label>
-        <name-autocomplete id="name" name="name" required></name-autocomplete>
+        <name-autocomplete id="name" name="name"></name-autocomplete>
       </div>
       <div class="form-group">
         <label for="description">Детальніше</label>
@@ -19,10 +19,10 @@
         <input type="date" class="form-control" id="date" [(ngModel)]="expense.date" required name="date">
       </div>
       <div class="row vertical-align">
-        <div class="col-md-2">
+        <div class="">
           <button type="submit" class="btn btn-outline-primary">Додати</button>
         </div>
-        <div class="col-md-10">
+        <div class="">
           <i class="fa fa-{{alert.type}}" aria-hidden="true" *ngIf="alert?.visible"></i>
         </div>
       </div>
@@ -30,10 +30,10 @@
   </div>
 </div>
 <div class="card vertical-align">
-  <div class="col-md-6">
+  <div class="">
     <input type="file" class="form-control-file" ng2FileSelect [uploader]="uploader"/>
   </div>
-  <div class="col-md-3">
+  <div class="">
     <div class="card-block">
       <button type="button" class="btn btn-outline-success btn-s"
               (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">

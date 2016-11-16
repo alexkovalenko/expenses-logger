@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Expense} from "../Expense";
 import {ExpenseService, baseUrl} from "../expense.service";
 import {FileUploader} from "ng2-file-upload";
+import {NameAutocompleteComponent} from "../name-autocomplete/name-autocomplete.component";
 
 @Component({
   selector: 'expense-form',
@@ -10,6 +11,8 @@ import {FileUploader} from "ng2-file-upload";
   providers: [ExpenseService]
 })
 export class ExpenseFormComponent {
+  @ViewChild(NameAutocompleteComponent)
+  nameAutocomplete: NameAutocompleteComponent;
   alert: Alert;
   expense: Expense;
   uploader: FileUploader = new FileUploader({url: `${baseUrl}/expense/import`});
@@ -20,6 +23,7 @@ export class ExpenseFormComponent {
   }
 
   addExpence() {
+    this.expense.name = this.nameAutocomplete.name;
     this.expenseService.addExpense(this.expense).subscribe(
       response => {
         this.showSuccessMessage('check')
@@ -30,6 +34,7 @@ export class ExpenseFormComponent {
       }
     );
     this.expense = new Expense();
+    this.nameAutocomplete.name = '';
   }
 
   showSuccessMessage(type: string) {
